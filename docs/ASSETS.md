@@ -1,10 +1,10 @@
 # Asset provenance
 
-- `public/favicon.svg`, `public/brand/social-preview.svg`, and `src/components/ResearchFigure.astro`: original geometric/typographic artwork created for this site. No stock imagery, client logos, third-party illustrations, or synthetic research results.
-- `public/brand/social-preview.png` and `apple-touch-icon.png`: generated from original SVG with `npm run assets`; source is `scripts/generate-brand-assets.mjs`. Social graphic is 1200 × 630px. Its system serif/sans fallback rendering is intentionally independent of web-font downloads.
-- Crimson Pro: Jacques Le Bailly and project contributors, SIL Open Font License 1.1; distributed through `@fontsource/crimson-pro`.
-- Atkinson Hyperlegible: Braille Institute / Applied Design Works and project contributors, SIL Open Font License 1.1; distributed through `@fontsource/atkinson-hyperlegible`.
-- Font license texts are copied to `public/brand/licenses/`. Only Latin subsets of four font faces are requested. Fonts are served locally; no visitor requests go to Google Fonts.
-- Arrow and simple practice marks: original inline SVG paths.
+- Folded-N logo, wordmark, favicon, social artwork, `ResearchFigure.astro`, `OpticalStudy.astro` and practice illustrations: original SVG/CSS artwork created for Neosis Research. No stock photography, client logos or synthetic results.
+- `npm run assets` regenerates the SVG symbol/wordmark, favicon, 1200×630 social graphic, PNG social card and 180px touch icon. Source: `scripts/generate-brand-assets.mjs`.
+- DM Sans: Google / Colophon Foundry and project contributors, SIL Open Font License 1.1, via `@fontsource/dm-sans`.
+- Crimson Pro: Jacques Le Bailly and project contributors, SIL Open Font License 1.1, via `@fontsource/crimson-pro`.
+- Font license texts are in `public/brand/licenses/`. Four Latin font faces are self-hosted.
+- 21st reference pages informed visual patterns; no component source or preview images were copied into the website. See `DESIGN.md` for exact references.
 
-No paid asset licenses or external image services are required. Keep these license files when redistributing the fonts.
+Keep font license files with redistributed fonts. Original artwork illustrates inquiry and synthesis, not observed data or research output.

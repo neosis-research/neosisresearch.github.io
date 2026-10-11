@@ -2,7 +2,7 @@
 export const site = {
   name: 'Neosis Research',
   shortName: 'Neosis',
-  tagline: 'Research for complex questions.',
+  tagline: 'Complex questions. Clearer understanding.',
   description:
     'Neosis Research is a multidisciplinary research and consulting firm connecting computational expertise, rigorous evaluation, and evidence for better decisions.',
   domain: null as string | null, // Future origin, e.g. https://your-purchased-domain.org (no path).

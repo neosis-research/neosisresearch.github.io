@@ -1,112 +1,109 @@
 ---
 import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
-import ResearchFigure from '../components/ResearchFigure.astro';
+import OpticalStudy from '../components/OpticalStudy.astro';
 import CTA from '../components/CTA.astro';
 import { url } from '../lib/urls';
 import { site } from '../../site.config';
 const process = [
   [
     'Define',
-    'Clarify the question, the decision context, and what the research needs to make possible.',
-  ],
-  ['Design', 'Choose methods that fit the question, the evidence, and the real-world constraints.'],
-  ['Investigate', 'Collect, structure, analyze, and model the information that matters.'],
-  [
-    'Interpret',
-    'Examine what the findings support, where uncertainty remains, and why it matters.',
+    'Start with the question. Understand the context, the decision, and what needs to be learned.',
   ],
   [
-    'Communicate',
-    'Make the evidence useful through clear reporting, visualizations, and reproducible outputs.',
+    'Design',
+    'Choose the methods. Shape an approach around the evidence and the real-world constraints.',
   ],
+  ['Investigate', 'Follow the evidence. Collect, structure, analyze, and test with care.'],
+  ['Interpret', 'Make sense of the findings. Examine uncertainty, meaning, and what comes next.'],
+  ['Communicate', 'Make the work useful. Deliver clear evidence and reproducible outputs.'],
 ];
 ---
 
 <Base title={site.tagline.replace(/\.$/, '')} description={site.description}>
-  <section class="home-hero container">
-    <div class="hero-grid">
+  <section class="home-hero">
+    <div class="hero-atmosphere" aria-hidden="true"></div>
+    <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">
-          <span class="small-dot"></span>Independent inquiry. Connected expertise.
+        <p class="eyebrow hero-badge">
+          <span class="signal-dot"></span>Independent inquiry. Connected expertise.
         </p>
         <h1>
-          {site.tagline === 'Research for complex questions.' ? (
+          {site.tagline === 'Complex questions. Clearer understanding.' ? (
             <Fragment>
-              Research for
-              <br />
-              <em>complex</em>
+              Complex
               <br />
               questions.
+              <br />
+              <span class="hero-conclusion">
+                Clearer <em>understanding.</em>
+              </span>
             </Fragment>
           ) : (
             site.tagline
           )}
         </h1>
         <p>
-          We connect rigorous research, computational expertise, and evaluation to turn important
-          questions into useful evidence.
+          Rigorous research. Advanced computation. Meaningful evidence. We connect disciplines to
+          bring important questions into focus.
         </p>
         <div class="actions">
           <a class="button" href={url('contact/')}>
-            Discuss a Project <Arrow />
+            Discuss a Project{' '}
+            <span class="button-icon">
+              <Arrow />
+            </span>
           </a>
           <a class="text-link" href={url('capabilities/')}>
             Explore Our Capabilities <Arrow />
           </a>
         </div>
       </div>
-      <ResearchFigure />
+      <OpticalStudy />
     </div>
-    <div class="hero-foot">
+    <div class="container hero-foot">
       <span>A MULTIDISCIPLINARY RESEARCH & CONSULTING FIRM</span>
-      <span>Methodology before technology.</span>
-      <a class="down-link" href="#our-approach">
-        Explore Neosis <span aria-hidden="true">↓</span>
+      <a href="#practices" class="down-link">
+        Discover our approach{' '}
+        <span class="round-arrow" aria-hidden="true">
+          ↓
+        </span>
       </a>
     </div>
   </section>
-  <section class="container section border-top" id="our-approach">
-    <div class="intro-grid">
-      <p class="eyebrow">01 / Our perspective</p>
-      <div>
-        <h2>
-          The right expertise.
-          <br />A more complete understanding.
-        </h2>
-        <p class="intro-copy">
-          Complex questions rarely sit within a single discipline. Neosis Research brings together
-          research design, advanced analytics, and evaluation to help organizations investigate what
-          matters—and understand what comes next.
-        </p>
-      </div>
-    </div>
-  </section>
-  <section class="container section-bottom" id="practices">
+  <section class="container practice-section" id="practices">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">02 / Our practices</p>
+        <p class="eyebrow">
+          <span class="section-index">01</span> Connected practices
+        </p>
         <h2>
-          Two practices.
+          Different disciplines.
           <br />
-          One commitment to rigor.
+          <span class="subtle-text">A deeper perspective.</span>
         </h2>
       </div>
       <p>
-        Complementary ways of working, connected by a shared focus on sound methods and useful
-        evidence.
+        The right expertise changes what you can see. Our practices bring complementary ways of
+        thinking to the same commitment: rigorous, useful research.
       </p>
     </div>
     <div class="practice-grid">
-      <article class="practice">
+      <article class="practice practice-computational">
+        <div class="practice-glow" aria-hidden="true"></div>
         <div class="practice-top">
-          <span class="practice-number">I.</span>
-          <svg class="practice-mark" viewBox="0 0 100 65" fill="none" aria-hidden="true">
-            {[0, 1, 2, 3, 4, 5].map((i) => (
+          <span class="pill-label">Practice I</span>
+          <span class="practice-corner" aria-hidden="true">
+            01 /
+          </span>
+        </div>
+        <div class="practice-visual" aria-hidden="true">
+          <svg viewBox="0 0 440 180" fill="none">
+            {Array.from({ length: 19 }, (_, i) => (
               <path
-                d={`M2 ${12 + i * 8}C30 ${-10 + i * 12} 60 ${90 - i * 12} 98 ${12 + i * 8}`}
+                d={`M-20 ${40 + i * 8} C100 ${-40 + i * 12} 185 ${270 - i * 11} 280 ${55 + i * 5} S410 ${-10 + i * 13} 460 ${40 + i * 8}`}
                 stroke="currentColor"
-                stroke-width=".8"
+                opacity={0.22 + i * 0.025}
               />
             ))}
           </svg>
@@ -117,32 +114,43 @@ const process = [
           Research
         </h3>
         <p>
-          Specialized analytical and computational capability, brought into the context of your
-          research. From statistical modeling to scientific machine learning.
+          Specialized analytical capability for ambitious research questions. From statistical
+          modeling to scientific machine learning and reproducible software.
         </p>
         <ul>
           <li>Advanced analytics</li>
-          <li>AI & machine learning</li>
+          <li>Machine learning</li>
           <li>Research engineering</li>
         </ul>
-        <a class="text-link" href={url('computational-research/')}>
-          Explore Computational Research <Arrow />
+        <a class="practice-link" href={url('computational-research/')}>
+          <span>Explore Computational Research</span>
+          <span class="round-arrow">
+            <Arrow />
+          </span>
         </a>
       </article>
-      <article class="practice">
+      <article class="practice practice-evaluation">
+        <div class="practice-glow" aria-hidden="true"></div>
         <div class="practice-top">
-          <span class="practice-number">II.</span>
-          <svg class="practice-mark" viewBox="0 0 100 65" fill="none" aria-hidden="true">
-            {[0, 1, 2, 3].map((i) => (
-              <circle
-                cx={20 + i * 20}
-                cy="32"
-                r={10 + i * 3}
+          <span class="pill-label">Practice II</span>
+          <span class="practice-corner" aria-hidden="true">
+            02 /
+          </span>
+        </div>
+        <div class="practice-visual" aria-hidden="true">
+          <svg viewBox="0 0 440 180" fill="none">
+            {Array.from({ length: 9 }, (_, i) => (
+              <ellipse
+                cx={130 + i * 22}
+                cy="90"
+                rx={55 + i * 2}
+                ry={65 - i * 3}
                 stroke="currentColor"
-                stroke-width=".8"
+                opacity={0.25 + i * 0.07}
               />
             ))}
-            <path d="M5 32h90" stroke="currentColor" stroke-width=".8" />
+            <path d="M50 90h340" stroke="currentColor" stroke-opacity=".3" />
+            <circle cx="220" cy="90" r="4" fill="currentColor" />
           </svg>
         </div>
         <h3>
@@ -150,39 +158,83 @@ const process = [
           <br />& Evidence
         </h3>
         <p>
-          Thoughtful research design and independent evaluation to understand programs, assess
-          outcomes, and inform decisions with defensible evidence.
+          Thoughtful research design and independent evaluation. Understand implementation, examine
+          outcomes, and build evidence for the decisions ahead.
         </p>
         <ul>
           <li>Program evaluation</li>
           <li>Mixed methods</li>
           <li>Evidence synthesis</li>
         </ul>
-        <a class="text-link" href={url('research-evaluation/')}>
-          Explore Research & Evaluation <Arrow />
+        <a class="practice-link" href={url('research-evaluation/')}>
+          <span>Explore Research & Evaluation</span>
+          <span class="round-arrow">
+            <Arrow />
+          </span>
         </a>
       </article>
     </div>
   </section>
-  <section class="partnership-band section">
-    <div class="container">
+  <section class="container section" id="our-approach">
+    <div class="perspective-grid">
+      <div>
+        <p class="eyebrow">
+          <span class="section-index">02</span> Our perspective
+        </p>
+        <span class="oversized-asterisk" aria-hidden="true">
+          ✳
+        </span>
+      </div>
+      <div>
+        <h2 class="perspective-statement">
+          The question leads.
+          <br />
+          The method follows.
+          <br />
+          <em>Understanding is the aim.</em>
+        </h2>
+        <div class="perspective-copy">
+          <p>
+            Complex questions rarely fit within a single discipline. We connect research design,
+            advanced analytics, and evaluation to investigate what matters.
+          </p>
+          <p>
+            Technology is one part of that work. Judgment, context, and a clear understanding of the
+            problem are just as essential.
+          </p>
+        </div>
+        <a class="text-link" href={url('about/')}>
+          The Thinking Behind Neosis <Arrow />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="partnership-section">
+    <div class="container partnership-window">
+      <div class="partnership-motif" aria-hidden="true">
+        {Array.from({ length: 8 }, (_, i) => (
+          <span style={`--i:${i}`}></span>
+        ))}
+      </div>
       <div class="partnership-layout">
         <div>
-          <p class="eyebrow">03 / Sponsored research partnerships</p>
+          <p class="eyebrow">
+            <span class="signal-dot"></span> Sponsored research partnerships
+          </p>
           <h2>
             Part of your team.
             <br />
-            Focused on the research.
+            <em>Invested in the question.</em>
           </h2>
         </div>
         <div>
           <p class="lead">Important research is a collaborative effort.</p>
           <p>
             We can join multidisciplinary teams at the proposal stage or contribute specialized
-            expertise to funded work. Define the question, the contribution, and the right way to
-            collaborate.
+            expertise to funded work. A clear role. A thoughtful contribution. A shared research
+            purpose.
           </p>
-          <a class="text-link" href={url('sponsored-research/')}>
+          <a class="button button-glass" href={url('sponsored-research/')}>
             Explore Research Partnerships <Arrow />
           </a>
         </div>
@@ -198,8 +250,14 @@ const process = [
   <section class="container section">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">04 / Connected capabilities</p>
-        <h2>Depth where it matters.</h2>
+        <p class="eyebrow">
+          <span class="section-index">03</span> The capability spectrum
+        </p>
+        <h2>
+          Depth, where
+          <br />
+          <span class="subtle-text">your research needs it.</span>
+        </h2>
       </div>
       <a class="text-link" href={url('capabilities/')}>
         View All Capabilities <Arrow />
@@ -207,54 +265,69 @@ const process = [
     </div>
     <div class="capability-summary">
       {[
-        ['Research design', 'research-design'],
-        ['Quantitative analysis', 'quantitative-analysis'],
-        ['Computational research', 'computational-research'],
-        ['Evaluation', 'evaluation'],
-        ['Evidence synthesis', 'evidence'],
-        ['Research data', 'research-data'],
-      ].map(([label, id], i) => (
+        ['Research design', 'research-design', 'Frame the question. Shape the study.'],
+        ['Quantitative analysis', 'quantitative-analysis', 'Find patterns. Examine uncertainty.'],
+        ['Computational research', 'computational-research', 'Bring advanced methods to the work.'],
+        ['Evaluation', 'evaluation', 'Understand implementation and impact.'],
+        ['Evidence synthesis', 'evidence', 'Connect what is known to what comes next.'],
+        ['Research data', 'research-data', 'Build a dependable analytical foundation.'],
+      ].map(([label, id, description], i) => (
         <a href={url(`capabilities/#${id}`)}>
-          <span>0{i + 1}</span>
-          {label}
-          <Arrow />
+          <span class="capability-number">0{i + 1}</span>
+          <span class="capability-name">
+            {label}
+            <small>{description}</small>
+          </span>
+          <span class="round-arrow">
+            <Arrow />
+          </span>
         </a>
       ))}
     </div>
   </section>
-  <section class="container section-bottom">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">05 / How we work</p>
-        <h2>
-          The question leads.
-          <br />
-          The method follows.
-        </h2>
-      </div>
-      <p>We work from the problem outward, bringing clarity to each stage of the research.</p>
-    </div>
-    <div class="process">
-      {process.map(([title, text], i) => (
+  <section class="method-section section">
+    <div class="container">
+      <div class="section-heading">
         <div>
-          <span class="step">0{i + 1} /</span>
-          <h3>{title}</h3>
-          <p>{text}</p>
+          <p class="eyebrow">
+            <span class="section-index">04</span> How we work
+          </p>
+          <h2>
+            A clear path through
+            <br />
+            <em>the complexity.</em>
+          </h2>
         </div>
-      ))}
+        <p>
+          From the first conversation to the final interpretation, each stage connects back to the
+          purpose of the research.
+        </p>
+      </div>
+      <div class="process">
+        {process.map(([title, text], i) => (
+          <div>
+            <span class="step">0{i + 1}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
-  <section class="tint-section section">
-    <div class="container sector-layout">
+  <section class="container section">
+    <div class="sector-layout">
       <div>
-        <p class="eyebrow">06 / Across disciplines & sectors</p>
+        <p class="eyebrow">
+          <span class="section-index">05</span> Across sectors
+        </p>
         <h2>
-          Different contexts.
+          Where important
           <br />
-          Shared curiosity.
+          <span class="subtle-text">questions live.</span>
         </h2>
         <p class="muted">
-          For organizations with important questions and a need for additional research capability.
+          For organizations with domain expertise, meaningful questions, and a need for additional
+          research capability.
         </p>
       </div>
       <ul class="sector-list">
@@ -266,31 +339,43 @@ const process = [
           'Foundations & Nonprofits',
           'Life Sciences',
           'Industry R&D',
-        ].map((sector) => (
-          <li>{sector}</li>
+        ].map((sector, i) => (
+          <li>
+            <span class="sector-dot" aria-hidden="true"></span>
+            {sector}
+            <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          </li>
         ))}
       </ul>
     </div>
   </section>
-  <section class="container section insight-preview">
-    <div>
-      <p class="eyebrow">07 / From Neosis</p>
-      <h2 style="margin-top:20px">
-        Notes on
-        <br />
-        the work.
-      </h2>
-    </div>
-    <div class="launch-note">
-      <p class="eyebrow">Insights / Forthcoming</p>
-      <h3>A space for considered perspectives.</h3>
-      <p class="muted">
-        Research notes on methods, evidence, evaluation, and the thoughtful application of
-        computational science.
-      </p>
-      <a class="text-link" href={url('insights/')}>
-        Explore Insights <Arrow />
-      </a>
+  <section class="container section-bottom">
+    <div class="insight-preview">
+      <div>
+        <p class="eyebrow">
+          <span class="section-index">06</span> Neosis perspectives
+        </p>
+        <h2>
+          A space to
+          <br />
+          <em>look closer.</em>
+        </h2>
+      </div>
+      <div class="launch-note">
+        <span class="pill-label">Insights / Forthcoming</span>
+        <h3>
+          Considered perspectives.
+          <br />
+          Questions worth exploring.
+        </h3>
+        <p>
+          Research notes on methods, evidence, evaluation, and the thoughtful application of
+          computational science.
+        </p>
+        <a class="text-link" href={url('insights/')}>
+          Explore Insights <Arrow />
+        </a>
+      </div>
     </div>
   </section>
   <CTA />

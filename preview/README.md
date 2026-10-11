@@ -15,3 +15,12 @@ The inquiry worksheet prepares text locally and does not send anything. Clipboar
 See the repository's main README for `npm ci` and `npm run dev` instructions. The preview ZIP is a snapshot, not the editable source; regenerate it after website changes.
 
 The repository is public, so these files are publicly downloadable. Opening the extracted preview runs it on your computer; it does not publish a hosted website.
+
+## Observatory redesign
+
+- `homepage-desktop.png`: desktop opening screen with the optical glass sculpture.
+- `homepage-mobile.png`: mobile opening and sculpture.
+- `neosis-logo.png`: custom folded-N identity and palette.
+- Reusable SVG logo assets are in `public/brand/`.
+
+To regenerate: build the site, start Astro preview on port 4323, then run `npm run preview:package`. Set `QA_ORIGIN` if using another port. The packaging script keeps its staging directory under ignored `test-results/`.

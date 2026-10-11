@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "project": {
+    "name": "neosis-research-website",
+    "productType": "Research and consulting firm",
+    "stack": ["astro"]
+  },
+  "sources": {
+    "tokens": ["src/styles/global.css"],
+    "components": ["src/components"],
+    "assets": ["public/brand"],
+    "instructions": ["docs/DESIGN.md"]
+  },
+  "design": {
+    "colorMode": "dark",
+    "colors": {
+      "background": "#091719",
+      "surface": "#102326",
+      "text": "#eff7f4",
+      "muted": "#afc3c1",
+      "accent": "#b6f2df"
+    },
+    "typography": {
+      "primary": "DM Sans",
+      "editorial": "Crimson Pro"
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {
+      "continuous": false,
+      "reducedMotion": true
+    },
+    "density": "spacious"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": [
+      "Floating glass navigation",
+      "Layered optical study",
+      "Translucent practice panels",
+      "Folded-N logo"
+    ]
+  },
+  "constraints": {
+    "must": [
+      "Readable dark surfaces",
+      "Keyboard navigation",
+      "No-JavaScript navigation",
+      "Responsive at 320px"
+    ],
+    "avoid": ["Invented credentials or results", "Heavy client animation dependencies"]
+  },
+  "decisions": [
+    "Original Astro/CSS/SVG interpretation of public 21st Liquid Glass Button, PrismaHero and Topo Field references.",
+    "UI UX Pro Max consulted for glass, typography, contrast and motion."
+  ],
+  "evidence": [
+    {
+      "fact": "project.stack:astro",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-10-11T16:48:44.985Z"
+}

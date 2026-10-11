@@ -1,0 +1,73 @@
+---
+/** Original optical sculpture: layered methods converging around a shared question. */
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<div class:list={['optical-study', { compact }]} aria-hidden="true">
+  <div class="optical-halo"></div>
+  <svg class="optical-orbits" viewBox="0 0 620 620" fill="none">
+    <circle cx="310" cy="310" r="276" stroke="currentColor" stroke-opacity=".12" />
+    <circle
+      cx="310"
+      cy="310"
+      r="225"
+      stroke="currentColor"
+      stroke-opacity=".09"
+      stroke-dasharray="2 10"
+    />
+    <path d="M0 310h620M310 0v620" stroke="currentColor" stroke-opacity=".06" />
+    <path
+      d="M304 34h12M310 28v12M28 304v12M22 310h12M592 304v12M586 310h12"
+      stroke="currentColor"
+      stroke-opacity=".5"
+    />
+  </svg>
+  <div class="optical-scene">
+    <div class="optical-stack">
+      <div class="optical-plane plane-data">
+        <div class="plane-grid"></div>
+        <span class="plane-index">01 / INQUIRY</span>
+        <div class="plane-cross"></div>
+      </div>
+      <div class="optical-plane plane-method">
+        <svg viewBox="0 0 360 360" fill="none">
+          {Array.from({ length: 14 }, (_, i) => (
+            <ellipse
+              cx="180"
+              cy="180"
+              rx={40 + i * 7}
+              ry={120 - i * 4}
+              transform={`rotate(${i * 9} 180 180)`}
+              stroke="currentColor"
+              stroke-width=".8"
+              opacity={0.35 + i * 0.03}
+            />
+          ))}
+        </svg>
+        <span class="plane-index">02 / EXPLORATION</span>
+      </div>
+      <div class="optical-plane plane-insight">
+        <div class="lens-rim">
+          <div class="lens-core">
+            <span></span>
+          </div>
+        </div>
+        <span class="plane-index">03 / UNDERSTANDING</span>
+        <span class="plane-coordinate">N / R</span>
+      </div>
+    </div>
+  </div>
+  <div class="optical-label label-a">
+    <span class="signal-dot"></span>Multiple disciplines
+  </div>
+  <div class="optical-label label-b">
+    <span class="cross-icon">+</span>A shared question
+  </div>
+  <div class="optical-caption">
+    <span>OPTICAL STUDY — 001</span>
+    <span>CONVERGENCE</span>
+  </div>
+</div>

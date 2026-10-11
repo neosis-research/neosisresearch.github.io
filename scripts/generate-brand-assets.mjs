@@ -1,15 +1,23 @@
 import fs from 'node:fs/promises';
 import sharp from 'sharp';
+const mark = `<path d="M5 34V9l6-4 24 26-6 4L5 9m24 26V10l6-5v26" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round"/><path d="m5 9 6-4 24 26-6 4Z" fill="currentColor" fill-opacity=".16"/>`;
+const symbol = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" color="#b6f2df">${mark}</svg>`;
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#091719"/><g transform="translate(8 8) scale(1.2)" color="#b6f2df">${mark}</g></svg>`;
+await fs.writeFile('public/favicon.svg', favicon);
+await fs.writeFile('public/brand/neosis-symbol.svg', symbol);
+// The exported wordmark uses portable font fallbacks; the website uses self-hosted DM Sans.
+const wordmark = `<svg xmlns="http://www.w3.org/2000/svg" width="340" height="90" viewBox="0 0 340 90"><g transform="translate(8 8) scale(1.8)" color="#b6f2df">${mark}</g><g fill="#eff7f4" font-family="Arial,sans-serif"><text x="97" y="43" font-size="34" letter-spacing="4">NEOSIS</text><text x="99" y="68" font-size="10" letter-spacing="5">RESEARCH</text></g></svg>`;
+await fs.writeFile('public/brand/neosis-wordmark.svg', wordmark);
 const curves = Array.from(
-  { length: 19 },
+  { length: 18 },
   (_, i) =>
-    `<ellipse cx="941" cy="326" rx="${45 + i * 6}" ry="${163 - i * 3}" transform="rotate(${i * 5 - 45} 941 326)" fill="none" stroke="#173e35" stroke-width="1" opacity="${0.22 + i * 0.025}"/>`,
+    `<ellipse cx="950" cy="330" rx="${60 + i * 6}" ry="${180 - i * 5}" transform="rotate(${i * 8} 950 330)" fill="none" stroke="#b6f2df" opacity="${0.15 + i * 0.025}"/>`,
 ).join('');
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#f6f5ee"/><path d="M65 125h1070M65 545h1070" stroke="#cdd2c8"/><text x="65" y="66" fill="#173e35" font-family="sans-serif" font-size="28" letter-spacing="5">NEOSIS</text><text x="66" y="90" fill="#173e35" font-family="sans-serif" font-size="10" letter-spacing="5">RESEARCH</text><text x="65" y="180" fill="#58655e" font-family="sans-serif" font-size="12" letter-spacing="2">INDEPENDENT INQUIRY. CONNECTED EXPERTISE.</text><g fill="#173e35" font-family="serif" font-size="83"><text x="60" y="291">Research for</text><text x="60" y="389" font-style="italic">complex questions.</text></g><text x="65" y="478" fill="#58655e" font-family="sans-serif" font-size="19">Research. Evidence. Understanding.</text>${curves}<circle cx="941" cy="326" r="6" fill="#173e35"/><text x="65" y="581" fill="#58655e" font-family="sans-serif" font-size="12" letter-spacing="2">MULTIDISCIPLINARY RESEARCH &amp; CONSULTING</text><text x="1055" y="581" fill="#58655e" font-family="sans-serif" font-size="12">NR—001</text></svg>`;
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><defs><radialGradient id="glow"><stop stop-color="#285554"/><stop offset="1" stop-color="#091719"/></radialGradient></defs><rect width="1200" height="630" fill="#091719"/><circle cx="920" cy="315" r="360" fill="url(#glow)"/><g transform="translate(60 35) scale(1.2)" color="#b6f2df">${mark}</g><text x="125" y="65" fill="#eff7f4" font-family="sans-serif" font-size="25" letter-spacing="4">NEOSIS</text><text x="126" y="86" fill="#afc3c1" font-family="sans-serif" font-size="9" letter-spacing="4">RESEARCH</text><path d="M65 125h1070M65 545h1070" stroke="#304b4c"/><text x="65" y="182" fill="#afc3c1" font-family="sans-serif" font-size="11" letter-spacing="2">INDEPENDENT INQUIRY. CONNECTED EXPERTISE.</text><g fill="#eff7f4" font-family="sans-serif" font-size="76" letter-spacing="-3"><text x="60" y="285">Complex</text><text x="60" y="368">questions.</text></g><text x="65" y="451" fill="#b6f2df" font-family="serif" font-style="italic" font-size="49">Clearer understanding.</text>${curves}<circle cx="950" cy="330" r="5" fill="#b6f2df"/><text x="65" y="581" fill="#afc3c1" font-family="sans-serif" font-size="11" letter-spacing="2">MULTIDISCIPLINARY RESEARCH &amp; CONSULTING</text></svg>`;
 await fs.writeFile('public/brand/social-preview.svg', svg);
 await sharp(Buffer.from(svg)).png().toFile('public/brand/social-preview.png');
-await sharp('public/favicon.svg')
+await sharp(Buffer.from(favicon))
   .resize(180, 180)
   .png()
   .toFile('public/brand/apple-touch-icon.png');
-console.log('Generated original social preview and touch icon.');
+console.log('Generated original folded-N symbol, wordmark, favicon and social graphic.');

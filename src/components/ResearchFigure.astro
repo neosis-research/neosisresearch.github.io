@@ -1,0 +1,108 @@
+---
+interface Props {
+  variant?: 'synthesis' | 'computation' | 'evidence';
+}
+const { variant = 'synthesis' } = Astro.props;
+const curves = Array.from({ length: 19 }, (_, i) => i);
+---
+
+<div class:list={['research-figure', `figure-${variant}`]} aria-hidden="true">
+  <div class="figure-label">
+    <span>NEOSIS / FIELD NOTES</span>
+    <span>FIG. {variant === 'synthesis' ? '01' : variant === 'computation' ? '02' : '03'}</span>
+  </div>
+  <svg viewBox="0 0 520 460" fill="none">
+    <defs>
+      <pattern id={`grid-${variant}`} width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M32 0H0V32" stroke="currentColor" stroke-opacity=".07" />
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="520" height="460" fill={`url(#grid-${variant})`} />
+    <path
+      d="M260 30v395M50 230h420"
+      stroke="currentColor"
+      stroke-opacity=".2"
+      stroke-dasharray="3 6"
+    />
+    {variant === 'synthesis' ? (
+      <>
+        {curves.map((i) => (
+          <ellipse
+            cx="260"
+            cy="230"
+            rx={52 + i * 7.5}
+            ry={173 - i * 3.2}
+            transform={`rotate(${i * 5 - 45} 260 230)`}
+            stroke="currentColor"
+            stroke-width=".85"
+            opacity={0.22 + i * 0.025}
+          />
+        ))}
+        <circle cx="260" cy="230" r="7" fill="currentColor" />
+        <circle cx="260" cy="230" r="14" stroke="currentColor" stroke-opacity=".4" />
+        <path
+          d="M260 230L390 105h65M260 230L113 361H47"
+          stroke="currentColor"
+          stroke-opacity=".45"
+        />
+        <circle cx="390" cy="105" r="4" fill="var(--paper)" stroke="currentColor" />
+        <circle cx="113" cy="361" r="4" fill="var(--paper)" stroke="currentColor" />
+        <text x="405" y="94">
+          INQUIRY
+        </text>
+        <text x="47" y="383">
+          UNDERSTANDING
+        </text>
+      </>
+    ) : variant === 'computation' ? (
+      <>
+        {curves.map((i) => (
+          <path
+            d={`M45 ${100 + i * 14} C150 ${40 + i * 16}, 200 ${420 - i * 13}, 290 ${220 - i * 5} S420 ${80 + i * 13}, 475 ${120 + i * 10}`}
+            stroke="currentColor"
+            stroke-width="1"
+            opacity={0.25 + i * 0.03}
+          />
+        ))}
+        <circle cx="290" cy="230" r="6" fill="currentColor" />
+        <text x="50" y="410">
+          QUESTION → METHOD → INSIGHT
+        </text>
+      </>
+    ) : (
+      <>
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <>
+            <circle
+              cx={100 + i * 64}
+              cy={300 - i * 28}
+              r={16 + i * 5}
+              stroke="currentColor"
+              stroke-opacity={0.3 + i * 0.12}
+            />
+            <circle cx={100 + i * 64} cy={300 - i * 28} r="3" fill="currentColor" />
+          </>
+        ))}
+        <path
+          d="M100 300l64-28 64-28 64-28 64-28 64-28"
+          stroke="currentColor"
+          stroke-opacity=".5"
+        />
+        <text x="50" y="410">
+          OBSERVATION → INTERPRETATION
+        </text>
+      </>
+    )}
+    <path d="M31 30h12M37 24v12M477 430h12M483 424v12" stroke="currentColor" />
+  </svg>
+  <div class="figure-caption">
+    <span>
+      {variant === 'synthesis'
+        ? 'Different disciplines. A shared question.'
+        : variant === 'computation'
+          ? 'Complexity, brought into focus.'
+          : 'From observation to useful evidence.'}
+    </span>
+    <span>NR—{variant === 'synthesis' ? '001' : variant === 'computation' ? '002' : '003'}</span>
+  </div>
+</div>

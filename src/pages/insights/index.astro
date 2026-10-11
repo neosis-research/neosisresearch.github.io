@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CTA from '../../components/CTA.astro';
+import Arrow from '../../components/Arrow.astro';
+import { publishedInsights, formatDate } from '../../lib/insights';
+import { url } from '../../lib/urls';
+const articles = await publishedInsights();
+---
+
+<Base
+  title="Insights & Research Notes"
+  description="A space for Neosis Research perspectives on research methods, evaluation, evidence, and computational science. Research notes and commentary are forthcoming."
+>
+  <PageHero
+    label="Insights / Notes on the work"
+    title="Room for a closer look."
+    description="Perspectives on the methods we choose, the evidence we interpret, and the questions that deserve more attention."
+  />
+  <section class="container border-top section">
+    {articles.length ? (
+      <div class="article-list">
+        {articles.map((article) => (
+          <article>
+            <p class="eyebrow">
+              {article.data.category} /{' '}
+              <time datetime={article.data.publishedAt.toISOString()}>
+                {formatDate(article.data.publishedAt)}
+              </time>
+            </p>
+            <h2>
+              <a href={url(`insights/${article.id}/`)}>{article.data.title}</a>
+            </h2>
+            <p>{article.data.description}</p>
+            <a class="text-link" href={url(`insights/${article.id}/`)}>
+              Read {article.data.title}
+              <Arrow />
+            </a>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="insights-empty">
+        <div class="publication-art" aria-hidden="true">
+          <div class="paper-sheet">
+            <p class="eyebrow">Neosis / Research Notes</p>
+            <div class="paper-title">
+              A considered
+              <br />
+              perspective.
+            </div>
+            <span></span>
+            <span></span>
+            <span style="width:65%"></span>
+            <p class="eyebrow" style="margin-top:30px">
+              Methods. Evidence. Inquiry.
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">
+            <span class="small-dot"></span>Forthcoming
+          </p>
+          <h2>
+            Good questions
+            <br />
+            deserve space.
+          </h2>
+          <p class="muted">
+            Research notes and perspectives from Neosis Research are forthcoming. This space will
+            bring together thoughtful commentary on research practice, evaluation, and computational
+            methods.
+          </p>
+          <p class="muted">We will publish when there is something useful to contribute.</p>
+          <a class="text-link" href={url('about/')}>
+            Read About Our Approach <Arrow />
+          </a>
+        </div>
+      </div>
+    )}
+  </section>
+  <section class="container section-bottom">
+    <div class="border-top" style="padding-top:35px">
+      <p class="eyebrow">Areas of inquiry</p>
+      <div class="topic-strip">
+        <span>Research methodology</span>
+        <span>Evaluation & learning</span>
+        <span>Computational science</span>
+        <span>AI in research</span>
+        <span>Evidence & interpretation</span>
+      </div>
+    </div>
+  </section>
+  <CTA
+    title="Have a research question in mind?"
+    text="We welcome conversations about methods, collaboration, and the work ahead."
+  />
+</Base>

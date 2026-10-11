@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ResearchFigure from '../components/ResearchFigure.astro';
+import CTA from '../components/CTA.astro';
+const cycle = [
+  ['Question', 'What needs to be understood, and whose decision will it inform?'],
+  ['Design', 'What approach can produce relevant, credible evidence?'],
+  ['Data', 'What information is needed, and how should it be collected?'],
+  ['Analysis', 'What patterns emerge, and how robust are they?'],
+  ['Interpretation', 'What can be concluded within the study’s limitations?'],
+  ['Evidence', 'How can findings support thoughtful action?'],
+];
+const areas = [
+  [
+    'Program & impact evaluation',
+    'Examine how a program operates, what it achieves, and what can reasonably be attributed to it. Develop evaluation questions, theories of change, and measures that fit the program’s maturity and context.',
+    'Program evaluation · Impact evaluation · Independent evaluation',
+  ],
+  [
+    'Health & public-health research',
+    'Investigate health outcomes, service delivery, and the conditions that shape population health. Connect quantitative findings with the context needed to interpret their practical relevance.',
+    'Outcomes research · Public-health research · Health services',
+  ],
+  [
+    'Mixed-methods inquiry',
+    'Combine quantitative and qualitative evidence when a single lens is insufficient. Integrate surveys, interviews, document analysis, and statistical findings around a coherent research design.',
+    'Survey design · Qualitative research · Quantitative analysis',
+  ],
+  [
+    'Implementation & learning',
+    'Understand how an initiative is delivered, where implementation differs from intent, and what supports effective practice. Build monitoring approaches that generate usable information over time.',
+    'Implementation research · Monitoring & evaluation · Measurement',
+  ],
+  [
+    'Needs & landscape assessment',
+    'Clarify unmet needs, map existing services and evidence, and examine the conditions surrounding a decision. Make the scope, sources, and limitations of the assessment transparent.',
+    'Needs assessments · Environmental scans · Strategic research',
+  ],
+  [
+    'Evidence synthesis & reporting',
+    'Bring dispersed evidence into a structured account of what is known, where findings differ, and where gaps remain. Translate analysis into clear reports and decision-support materials.',
+    'Literature reviews · Evidence synthesis · Research reporting',
+  ],
+];
+---
+
+<Base
+  title="Research, Evaluation & Evidence"
+  description="Rigorous program evaluation, mixed-methods research, health outcomes analysis, and evidence synthesis designed around the decisions your organization needs to make."
+>
+  <PageHero
+    label="Practice II / Research, Evaluation & Evidence"
+    title="Evidence for decisions that matter."
+    description="Understand what is happening, examine what is working, and build a clearer basis for what comes next."
+  >
+    <nav class="page-subnav" aria-label="On this page">
+      <a href="#approach">
+        Our approach <span aria-hidden="true">↓</span>
+      </a>
+      <a href="#capabilities">
+        Research & evaluation <span aria-hidden="true">↓</span>
+      </a>
+      <a href="#lifecycle">
+        The research lifecycle <span aria-hidden="true">↓</span>
+      </a>
+    </nav>
+  </PageHero>
+  <section class="container border-top section" id="approach">
+    <div class="split-feature">
+      <ResearchFigure variant="evidence" />
+      <div>
+        <p class="eyebrow">Useful evidence begins with sound design</p>
+        <h2>
+          Rigor in the method.
+          <br />
+          Clarity in the meaning.
+        </h2>
+        <p>
+          Organizations need more than a collection of findings. They need evidence that speaks to
+          the decisions in front of them.
+        </p>
+        <p>
+          We help frame research and evaluation around the program, population, and context. The
+          work may draw on quantitative analysis, qualitative inquiry, or both—selected for what the
+          question requires.
+        </p>
+        <p>
+          For foundations, public agencies, nonprofits, universities, and health organizations, the
+          aim is the same: a defensible understanding of what the evidence does and does not
+          support.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="tint-section section" id="capabilities">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Research & evaluation</p>
+          <h2>
+            Methods connected
+            <br />
+            to the decisions ahead.
+          </h2>
+        </div>
+        <p>Support across a study, a program, or a defined phase of investigation.</p>
+      </div>
+      <div class="editorial-rows">
+        {areas.map(([title, text, tags], i) => (
+          <article class="editorial-row">
+            <span class="row-number">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{title}</h3>
+            <p>
+              {text}
+              <span class="tags">{tags}</span>
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="container section" id="lifecycle">
+    <p class="eyebrow">The research lifecycle</p>
+    <h2 style="margin-top:22px">A clear line from question to evidence.</h2>
+    <div class="research-cycle">
+      {cycle.map(([title, text], i) => (
+        <div>
+          <span>0{i + 1} /</span>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+  <section class="container section-bottom">
+    <div class="intro-grid border-top" style="padding-top:44px">
+      <p class="eyebrow">Independent judgment</p>
+      <div>
+        <p class="statement">
+          Good evaluation makes room for findings that <em>challenge expectations.</em>
+        </p>
+        <p class="intro-copy">
+          Agreeing on questions and criteria at the outset helps protect the integrity of the work.
+          We make assumptions, limitations, and uncertainty visible so findings can be considered on
+          their merits.
+        </p>
+      </div>
+    </div>
+  </section>
+  <CTA
+    title="What do you need to understand?"
+    text="Start with your program, your decision, or your research question. We can explore a proportionate and useful approach."
+  />
+</Base>

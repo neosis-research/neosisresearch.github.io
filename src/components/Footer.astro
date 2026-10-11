@@ -1,0 +1,84 @@
+---
+import Wordmark from './Wordmark.astro';
+import Arrow from './Arrow.astro';
+import { site, contactEmail } from '../../site.config';
+import { url } from '../lib/urls';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href={url()} aria-label="Neosis Research home">
+          <Wordmark />
+        </a>
+        <p>
+          Independent inquiry.
+          <br />
+          Connected expertise.
+        </p>
+      </div>
+      <div>
+        <h2>Our work</h2>
+        <ul>
+          <li>
+            <a href={url('computational-research/')}>Computational Research</a>
+          </li>
+          <li>
+            <a href={url('research-evaluation/')}>Research & Evaluation</a>
+          </li>
+          <li>
+            <a href={url('sponsored-research/')}>Sponsored Research</a>
+          </li>
+          <li>
+            <a href={url('capabilities/')}>Capabilities</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>The organization</h2>
+        <ul>
+          <li>
+            <a href={url('about/')}>About Neosis</a>
+          </li>
+          <li>
+            <a href={url('insights/')}>Insights</a>
+          </li>
+          <li>
+            <a href={url('contact/')}>Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>Start a conversation</h2>
+        <p>
+          A question worth investigating?
+          <br />
+          Let’s find a way forward.
+        </p>
+        <a class="text-link" href={url('contact/')}>
+          Discuss a Project <Arrow />
+        </a>
+        {contactEmail && (
+          <p>
+            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          </p>
+        )}
+        {site.linkedIn && (
+          <p>
+            <a href={site.linkedIn}>
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </p>
+        )}
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>
+        © {new Date().getFullYear()} {site.name}
+      </span>
+      <span>Research. Evidence. Understanding.</span>
+      <a href={url('contact/#privacy')}>A note on privacy</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,172 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ResearchFigure from '../components/ResearchFigure.astro';
+import CTA from '../components/CTA.astro';
+const capabilities = [
+  [
+    'Computational modeling',
+    'Translate scientific and operational questions into statistical and computational models. Make assumptions explicit, select an appropriate level of complexity, and examine sensitivity before interpreting results.',
+    'Statistical modeling · Predictive modeling · Scientific computing',
+  ],
+  [
+    'AI & machine learning',
+    'Investigate whether machine learning adds value over simpler approaches. Develop models around a defined research objective, with careful attention to leakage, generalizability, and the consequences of error.',
+    'Model development · Comparative baselines · Performance assessment',
+  ],
+  [
+    'Clinical & biomedical analytics',
+    'Structure analyses around clinical context and the strengths and limitations of the available data. Support retrospective studies, cohort characterization, and research into health outcomes.',
+    'Biomedical data · Retrospective research · Outcomes analysis',
+  ],
+  [
+    'NLP & language models',
+    'Explore text as research material: information extraction, document classification, and literature workflows. Evaluate language-model outputs against a defined task, with human review where interpretation matters.',
+    'Natural-language processing · Text analysis · Appropriate LLM applications',
+  ],
+  [
+    'Research data engineering',
+    'Create a dependable path from source data to analysis. Document transformations, investigate missingness and quality, and develop pipelines that a research team can understand and maintain.',
+    'Data preparation · Quality checks · Analytical pipelines',
+  ],
+  [
+    'Scientific software & automation',
+    'Build focused software that supports the research itself. Automate repeatable tasks, make analytical outputs easier to explore, and provide documentation that supports continued use.',
+    'Scientific software · Research dashboards · Data visualization',
+  ],
+  [
+    'Validation & reproducibility',
+    'Treat validation as part of the research design. Use appropriate data partitions, uncertainty estimates, sensitivity analyses, and versioned workflows to make findings easier to inspect and reproduce.',
+    'Model validation · Reproducible workflows · Technical documentation',
+  ],
+  [
+    'Clinical research & trial analytics',
+    'Contribute analytical support to study planning and interpretation, from exploratory analysis to defined trial work packages. Scope methods, data access, and responsibilities with the clinical research team.',
+    'Study analysis · Trial analytics · Exploratory endpoints',
+  ],
+];
+---
+
+<Base
+  title="AI & Computational Research"
+  description="Computational collaboration for research teams: statistical modeling, machine learning, biomedical analytics, research engineering, and reproducible workflows."
+>
+  <PageHero
+    label="Practice I / AI & Computational Research"
+    title="Computational expertise for research teams."
+    description="Bring specialized analytical capability into your research—without having to build an entire computational team."
+  >
+    <nav class="page-subnav" aria-label="On this page">
+      <a href="#collaboration">
+        The collaboration model <span aria-hidden="true">↓</span>
+      </a>
+      <a href="#expertise">
+        Areas of expertise <span aria-hidden="true">↓</span>
+      </a>
+      <a href="#questions">
+        Questions we can explore <span aria-hidden="true">↓</span>
+      </a>
+    </nav>
+  </PageHero>
+  <section class="tint-section section" id="collaboration">
+    <div class="container split-feature">
+      <div>
+        <p class="eyebrow">Research first. Tools second.</p>
+        <h2>
+          Your context.
+          <br />
+          Our computational contribution.
+        </h2>
+        <p>
+          A useful model begins with a meaningful question. We work with investigators and research
+          organizations to understand the scientific context, assess the available data, and choose
+          methods suited to the problem.
+        </p>
+        <p>
+          That may call for statistical analysis, machine learning, scientific software—or a simpler
+          approach. The method should earn its place.
+        </p>
+        <div class="collaboration-grid">
+          <div>
+            <h3>You bring</h3>
+            <ul class="plain-list">
+              <li>The research question</li>
+              <li>Domain and institutional knowledge</li>
+              <li>Scientific or clinical context</li>
+              <li>Data and access requirements</li>
+            </ul>
+          </div>
+          <div>
+            <h3>We contribute</h3>
+            <ul class="plain-list">
+              <li>Analytical strategy</li>
+              <li>Statistical and computational methods</li>
+              <li>Research engineering</li>
+              <li>Validation and documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ResearchFigure variant="computation" />
+    </div>
+  </section>
+  <section class="container section" id="expertise">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Areas of expertise</p>
+        <h2>
+          From analytical strategy
+          <br />
+          to reproducible implementation.
+        </h2>
+      </div>
+    </div>
+    <div class="editorial-rows">
+      {capabilities.map(([title, text, tags], i) => (
+        <article class="editorial-row">
+          <span class="row-number">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{title}</h3>
+          <p>
+            {text}
+            <span class="tags">{tags}</span>
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="container section-bottom" id="questions">
+    <div class="question-panel">
+      <div>
+        <p class="eyebrow">Starting with a question</p>
+        <h2>
+          What might we
+          <br />
+          investigate together?
+        </h2>
+        <p class="note">Illustrative research questions, not descriptions of past engagements.</p>
+      </div>
+      <ul class="question-list">
+        <li>
+          Can routinely collected data help identify patterns in health outcomes—and how well do
+          those patterns generalize?
+        </li>
+        <li>
+          Which computational approach is appropriate for a scientific problem with limited or
+          incomplete data?
+        </li>
+        <li>
+          Can research documents be analyzed systematically while preserving context and making
+          uncertainty visible?
+        </li>
+        <li>
+          How can an exploratory analysis become a documented, reproducible workflow that the full
+          team can use?
+        </li>
+      </ul>
+    </div>
+  </section>
+  <CTA
+    title="Bring the question. Let’s shape the approach."
+    text="Discuss the research context, the data you have, and where additional computational expertise could help."
+  />
+</Base>

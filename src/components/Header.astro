@@ -1,0 +1,75 @@
+---
+import Wordmark from './Wordmark.astro';
+import Arrow from './Arrow.astro';
+import { url } from '../lib/urls';
+const items = [
+  ['Research', 'computational-research/'],
+  ['Evaluation', 'research-evaluation/'],
+  ['Sponsored Research', 'sponsored-research/'],
+  ['Capabilities', 'capabilities/'],
+  ['Insights', 'insights/'],
+  ['About', 'about/'],
+];
+const current = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={url()} aria-label="Neosis Research home">
+      <Wordmark />
+    </a>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      hidden
+    >
+      <span>Menu</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 8h18M3 16h18" stroke="currentColor" stroke-width="1.5" />
+      </svg>
+    </button>
+    <nav id="primary-navigation" aria-label="Main navigation">
+      {items.map(([label, path]) => (
+        <a href={url(path)} aria-current={current.startsWith(url(path)) ? 'page' : undefined}>
+          {label}
+        </a>
+      ))}
+      <a
+        class="header-cta"
+        href={url('contact/')}
+        aria-current={current === url('contact/') ? 'page' : undefined}
+      >
+        Discuss a Project <Arrow />
+      </a>
+    </nav>
+  </div>
+</header>
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header')!;
+  const toggle = header.querySelector<HTMLButtonElement>('.menu-toggle')!;
+  const nav = header.querySelector<HTMLElement>('nav')!;
+  toggle.hidden = false;
+  header.classList.add('enhanced');
+  const setOpen = (open: boolean, restoreFocus = false) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    header.classList.toggle('menu-open', open);
+    toggle.querySelector('span')!.textContent = open ? 'Close' : 'Menu';
+    if (restoreFocus) toggle.focus();
+  };
+  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  header.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false, true);
+  });
+  nav.addEventListener('click', (e) => {
+    if ((e.target as Element).closest('a')) setOpen(false);
+  });
+  document.addEventListener('click', (e) => {
+    if (!header.contains(e.target as Node)) setOpen(false);
+  });
+  header.addEventListener('focusout', (e) => {
+    if (!header.contains(e.relatedTarget as Node)) setOpen(false);
+  });
+  matchMedia('(min-width: 1120px)').addEventListener('change', () => setOpen(false));
+</script>

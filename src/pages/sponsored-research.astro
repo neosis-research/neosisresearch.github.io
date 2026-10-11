@@ -1,0 +1,169 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CTA from '../components/CTA.astro';
+import Arrow from '../components/Arrow.astro';
+import { url } from '../lib/urls';
+const engagements = [
+  [
+    '01 / At the proposal stage',
+    'New research proposals',
+    'Bring computational, evaluation, or methodological expertise into the team while the research is taking shape. We can help define a feasible contribution, clarify methods, and scope analytical or technical work.',
+    'Potential contributions',
+    'Preliminary computational analysis, methodological input, work-package definition, and deliverable planning.',
+  ],
+  [
+    '02 / During delivery',
+    'Existing funded research',
+    'Add specialized capability to an active project through a clearly defined scope. Establish how the contribution fits the larger study, how decisions will be made, and how outputs will be integrated.',
+    'Potential contributions',
+    'Statistical analysis, data preparation, technical implementation, research reporting, and defined analytical deliverables.',
+  ],
+  [
+    '03 / Computational collaboration',
+    'A technical research partner',
+    'Connect domain expertise with advanced analytical methods and research engineering. Work together on the scientific question while assigning clear ownership of data, models, software, and interpretation.',
+    'Potential contributions',
+    'AI and machine learning, NLP, scientific software, model validation, and reproducible computational workflows.',
+  ],
+  [
+    '04 / Research & evaluation',
+    'An independent perspective',
+    'Bring additional research capacity or independent evaluation to a funded initiative. Develop an approach that reflects the program’s goals and context while preserving space for critical examination.',
+    'Potential contributions',
+    'Evaluation design, implementation research, monitoring, mixed-methods analysis, and evidence synthesis.',
+  ],
+];
+---
+
+<Base
+  title="Sponsored Research Partnerships"
+  description="Collaborate with Neosis Research on new proposals, funded projects, computational work packages, and independent evaluation through appropriate research arrangements."
+>
+  <PageHero
+    label="Across both practices / Sponsored Research"
+    title="Built to collaborate."
+    description="Specialized expertise, integrated into multidisciplinary research. A contribution defined by the question and built around the team."
+  >
+    <div class="actions">
+      <a class="button" href={url('contact/')}>
+        Discuss a Research Partnership <Arrow />
+      </a>
+    </div>
+  </PageHero>
+  <section class="partnership-band section">
+    <div class="container partnership-layout">
+      <div>
+        <p class="eyebrow">A shared research effort</p>
+        <h2>
+          Expand the expertise.
+          <br />
+          Keep the purpose.
+        </h2>
+      </div>
+      <div>
+        <p class="lead">A strong collaboration makes the whole research team more capable.</p>
+        <p>
+          Neosis can work alongside principal investigators, universities, hospitals, research
+          centers, nonprofits, and industry research teams. Our role is to contribute a defined body
+          of research, analysis, or evaluation within the larger effort.
+        </p>
+        <p>
+          The starting point is the scientific or programmatic need: where additional expertise
+          could strengthen the work, and how it can fit responsibly into the project.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Ways to work together</p>
+        <h2>
+          At the right stage.
+          <br />
+          In the right role.
+        </h2>
+      </div>
+      <p>From an emerging research idea to a specific need within an active award.</p>
+    </div>
+    <div class="engagements">
+      {engagements.map(([label, title, text, caption, output]) => (
+        <article>
+          <p class="eyebrow">{label}</p>
+          <h3>{title}</h3>
+          <p>{text}</p>
+          <div class="deliverable">
+            <strong>{caption}</strong>
+            <p>{output}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="tint-section section">
+    <div class="container split-feature">
+      <div>
+        <p class="eyebrow">The collaboration structure</p>
+        <h2>
+          Clear scope.
+          <br />
+          Shared expectations.
+        </h2>
+        <p>
+          Depending on the project and institutional requirements, collaboration may take the form
+          of a consulting agreement, research contract, subcontract, or an appropriate subaward.
+        </p>
+        <p>
+          The structure depends on the funder’s terms, the nature of the work, and the participating
+          institutions. Roles, deliverables, data access, and other requirements need to be agreed
+          for each engagement.
+        </p>
+        <p class="note">
+          Our contribution centers on research expertise and delivery. Proposal-stage collaboration
+          is focused on the research itself.
+        </p>
+      </div>
+      <div>
+        <h3>What we establish together</h3>
+        <ol class="compact-steps">
+          <li>The research objective and proposed contribution</li>
+          <li>Methods, deliverables, milestones, and dependencies</li>
+          <li>Data access, governance, and institutional approvals</li>
+          <li>Team responsibilities and communication</li>
+          <li>Budget, contractual structure, and practical constraints</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <section class="container section">
+    <div class="question-panel">
+      <div>
+        <p class="eyebrow">Start the conversation</p>
+        <h2>
+          You do not need
+          <br />a finished scope.
+        </h2>
+      </div>
+      <div>
+        <p class="lead">
+          An outline of the question, the current stage, and the expertise you need is a useful
+          beginning.
+        </p>
+        <p class="muted" style="margin-top:22px">
+          If a proposal is in development, include the anticipated submission date and the role you
+          are considering. For funded work, describe the project’s existing commitments and the gap
+          you want to address.
+        </p>
+        <a class="text-link" style="margin-top:22px" href={url('capabilities/')}>
+          Explore the Capabilities We Can Bring <Arrow />
+        </a>
+      </div>
+    </div>
+  </section>
+  <CTA
+    title="Let’s consider the research together."
+    text="Tell us where the project stands and what expertise would strengthen the team."
+    label="Discuss a Research Partnership"
+  />
+</Base>

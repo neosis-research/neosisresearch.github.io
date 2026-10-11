@@ -1,0 +1,35 @@
+{
+  "name": "neosis-research-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "test": "node scripts/check-build.mjs",
+    "test:browser": "node scripts/browser-qa.mjs",
+    "format": "prettier --write .",
+    "assets": "node scripts/generate-brand-assets.mjs",
+    "test:content": "node scripts/content-qa.mjs"
+  },
+  "dependencies": {
+    "@fontsource/atkinson-hyperlegible": "^5.2.0",
+    "@fontsource/crimson-pro": "^5.2.0",
+    "astro": "^7.3.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.56.0",
+    "cheerio": "^1.1.2",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.0"
+  }
+}

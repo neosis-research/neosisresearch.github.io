@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ResearchFigure from '../components/ResearchFigure.astro';
+import CTA from '../components/CTA.astro';
+import Arrow from '../components/Arrow.astro';
+import { url } from '../lib/urls';
+const principles = [
+  [
+    '01 / Question-led',
+    'Begin with what matters.',
+    'Clarify the question and its context before choosing a tool. A sophisticated method is useful only when it serves the purpose of the research.',
+  ],
+  [
+    '02 / Methodologically grounded',
+    'Make the reasoning visible.',
+    'Connect decisions to a defensible research design. State assumptions, explain analytical choices, and acknowledge what the evidence cannot resolve.',
+  ],
+  [
+    '03 / Built for collaboration',
+    'Respect the expertise in the room.',
+    'Domain knowledge, institutional context, and lived experience matter. Additional research capability should strengthen the team’s understanding.',
+  ],
+  [
+    '04 / Useful beyond delivery',
+    'Leave a clear path through the work.',
+    'Make evidence understandable and analytical work reproducible. Reports, code, and documentation should help people examine the findings and use them thoughtfully.',
+  ],
+];
+---
+
+<Base
+  title="About Neosis"
+  description="Neosis Research connects disciplines, methods, and expertise to investigate complex questions. Learn about our question-led approach to research and collaboration."
+>
+  <PageHero
+    label="About Neosis Research"
+    title="Across disciplines. Closer to understanding."
+    description="A multidisciplinary research and consulting firm built around a simple idea: good research begins with the question."
+  />
+  <section class="container border-top section">
+    <div class="split-feature">
+      <div>
+        <p class="eyebrow">Why Neosis</p>
+        <h2>
+          Complex questions need
+          <br />
+          connected thinking.
+        </h2>
+        <p>
+          Research increasingly brings together different kinds of data, different ways of knowing,
+          and different expectations for how findings will be used. Moving between those
+          perspectives takes both technical skill and careful judgment.
+        </p>
+        <p>
+          Neosis Research exists to contribute that connective expertise. Our two practices—AI &
+          Computational Research and Research, Evaluation & Evidence—bring complementary approaches
+          to investigation, analysis, and interpretation.
+        </p>
+        <p>
+          We work toward a shared aim: research that is methodologically sound, clearly
+          communicated, and useful in its context.
+        </p>
+      </div>
+      <ResearchFigure />
+    </div>
+  </section>
+  <section class="tint-section section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Our working principles</p>
+          <h2>How we think about the work.</h2>
+        </div>
+      </div>
+      <div class="about-principles">
+        {principles.map(([label, title, text]) => (
+          <article>
+            <p class="eyebrow">{label}</p>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="container about-statement">
+    <p>
+      Technology should serve the research.
+      <br />
+      Evidence should deepen understanding.
+      <br />
+      Collaboration should make both stronger.
+    </p>
+  </section>
+  <section class="container section-bottom">
+    <div class="intro-grid border-top" style="padding-top:45px">
+      <p class="eyebrow">One organization, connected practices</p>
+      <div>
+        <h2>
+          Different methods.
+          <br />A common standard.
+        </h2>
+        <p class="intro-copy">
+          Whether the work involves computational modeling, program evaluation, or a sponsored
+          research collaboration, the standard is consistent: fit the approach to the question,
+          attend to limitations, and make the reasoning clear.
+        </p>
+        <div class="actions">
+          <a class="text-link" href={url('capabilities/')}>
+            Explore Our Capabilities <Arrow />
+          </a>
+          <a class="text-link" href={url('sponsored-research/')}>
+            Research Partnerships <Arrow />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <CTA
+    title="A good collaboration begins with a conversation."
+    text="Share the question you are exploring and the perspective you need."
+  />
+</Base>

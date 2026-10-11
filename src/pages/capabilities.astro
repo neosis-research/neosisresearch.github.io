@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Arrow from '../components/Arrow.astro';
+import CTA from '../components/CTA.astro';
+import { url } from '../lib/urls';
+const groups = [
+  {
+    id: 'research-design',
+    title: 'Research Design',
+    text: 'A well-defined question and a coherent plan create the conditions for useful research. We help connect the purpose of a study to its methods and measures.',
+    items: [
+      'Study design',
+      'Evaluation frameworks',
+      'Methodology development',
+      'Measurement strategy',
+      'Research planning',
+      'Theory of change',
+    ],
+    path: 'research-evaluation/',
+    label: 'Research & Evaluation',
+  },
+  {
+    id: 'quantitative-analysis',
+    title: 'Quantitative Analysis',
+    text: 'Examine patterns, estimate relationships, and assess uncertainty. Analytical choices should reflect the data, the study design, and the decisions the findings will inform.',
+    items: [
+      'Statistical analysis',
+      'Predictive modeling',
+      'Machine learning',
+      'Outcomes analysis',
+      'Sensitivity analysis',
+      'Data visualization',
+    ],
+    path: 'computational-research/',
+    label: 'Computational Research',
+  },
+  {
+    id: 'computational-research',
+    title: 'Computational Research',
+    text: 'Apply computational methods where they offer a useful way into a research problem, with validation and interpretability considered from the start.',
+    items: [
+      'Artificial intelligence',
+      'Machine learning',
+      'Natural-language processing',
+      'Scientific computing',
+      'Research automation',
+      'Research engineering',
+      'Model validation',
+      'Scientific software',
+    ],
+    path: 'computational-research/',
+    label: 'Computational Research',
+  },
+  {
+    id: 'evaluation',
+    title: 'Evaluation',
+    text: 'Understand program implementation, assess outcomes, and examine impact. Build an evaluation around the program’s context and the questions its stakeholders need answered.',
+    items: [
+      'Program evaluation',
+      'Impact evaluation',
+      'Implementation evaluation',
+      'Monitoring & evaluation',
+      'Independent evaluation',
+      'Mixed-methods evaluation',
+    ],
+    path: 'research-evaluation/',
+    label: 'Research & Evaluation',
+  },
+  {
+    id: 'evidence',
+    title: 'Evidence',
+    text: 'Bring information together in a form that supports judgment. Make the strength, relevance, and limitations of the evidence clear to the people who need to use it.',
+    items: [
+      'Evidence synthesis',
+      'Literature review',
+      'Environmental scans',
+      'Research reports',
+      'Decision-support research',
+      'Needs assessments',
+      'Qualitative research',
+      'Survey research',
+    ],
+    path: 'research-evaluation/',
+    label: 'Research & Evaluation',
+  },
+  {
+    id: 'research-data',
+    title: 'Research Data',
+    text: 'Make data fit for the analytical work ahead. Create documented structures and workflows that support data quality, traceability, and reproducibility.',
+    items: [
+      'Data engineering',
+      'Data quality assessment',
+      'Analytical pipelines',
+      'Research databases',
+      'Data visualization',
+      'Reproducible workflows',
+    ],
+    path: 'computational-research/',
+    label: 'Computational Research',
+  },
+];
+---
+
+<Base
+  title="Research Capabilities"
+  description="Explore Neosis Research capabilities in research design, quantitative analysis, computational research, evaluation, evidence synthesis, and research data."
+>
+  <PageHero
+    label="The capability directory"
+    title="Expertise that connects."
+    description="A range of methods. A coherent research approach. Combine the capabilities your question calls for, from study design to interpretation."
+  />
+  <section class="container border-top section">
+    <div class="capability-directory">
+      <aside class="directory-nav">
+        <p class="eyebrow" style="margin-bottom:20px">
+          Explore by area
+        </p>
+        {groups.map((g, i) => (
+          <a href={`#${g.id}`}>
+            {g.title}
+            <span aria-hidden="true">0{i + 1}</span>
+          </a>
+        ))}
+      </aside>
+      <div>
+        {groups.map((g, i) => (
+          <section class="directory-group" id={g.id}>
+            <div class="directory-title">
+              <span>0{i + 1} /</span>
+              <h2>{g.title}</h2>
+            </div>
+            <p>{g.text}</p>
+            <ul>
+              {g.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <a class="text-link" href={url(g.path)}>
+              Explore {g.label}
+              <Arrow />
+            </a>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTA
+    title="The right combination starts with your question."
+    text="We can help identify which capabilities are relevant and shape a scope around the work you need to do."
+  />
+</Base>

@@ -1,0 +1,28 @@
+---
+import Arrow from './Arrow.astro';
+import { url } from '../lib/urls';
+interface Props {
+  title?: string;
+  text?: string;
+  label?: string;
+}
+const {
+  title = 'What question are you working on?',
+  text = 'Let’s explore how research, analysis, and a thoughtful collaboration can help you move forward.',
+  label = 'Discuss a Project',
+} = Astro.props;
+---
+
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div>
+      <p class="eyebrow">An invitation to collaborate</p>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <a class="button button-light" href={url('contact/')}>
+      {label}
+      <Arrow />
+    </a>
+  </div>
+</section>

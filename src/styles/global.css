@@ -1870,8 +1870,8 @@
   }
   .brand-symbol {
     color: var(--green);
-    width: 30px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
   }
   .wordmark > span:first-child {
     font-size: 24px;
@@ -2623,8 +2623,8 @@
       --gutter: 24px;
     }
     .brand-symbol {
-      width: 25px;
-      height: 30px;
+      width: 36px;
+      height: 36px;
     }
     .wordmark > span:first-child {
       font-size: 21px;

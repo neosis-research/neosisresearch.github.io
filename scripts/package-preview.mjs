@@ -22,7 +22,7 @@ async function walk(dir) {
 for (const file of await walk(output)) {
   if (file.endsWith('.css')) {
     const css = await fs.readFile(file, 'utf8');
-    const portable = css.replace(/url\((['"]?)([^)'"\s]+)\1\)/g, (match, quote, value) => {
+    const portable = css.replace(/url\((['"]?)([^)'"\s]+)\1\)/g, (match, _quote, value) => {
       if (!value.startsWith(base)) return match;
       const relative = path
         .relative(path.dirname(file), path.join(output, value.slice(base.length)))
@@ -82,8 +82,10 @@ try {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.evaluate(() => {
     const logo = document.querySelector('.brand-lockup').outerHTML;
-    const symbol = document.querySelector('.brand-symbol').outerHTML;
-    document.body.innerHTML = `<div class="identity-sheet"><div class="sheet-top"><span>NEOSIS RESEARCH</span><span>VISUAL IDENTITY / 01</span></div><div class="logo-showcase">${logo}</div><div class="identity-bottom"><div class="symbol-showcase">${symbol}</div><div class="identity-description"><p class="eyebrow">THE FOLDED N</p><h1>Different perspectives.<br>Connected understanding.</h1><p>An original geometric monogram, shaped by the optical language of the website.</p></div><div class="palette"><span></span><span></span><span></span></div></div></div>`;
+    const symbol = document
+      .querySelector('.brand-symbol')
+      .outerHTML.replaceAll(/neosis-field-[a-f0-9-]+/g, 'identity-secondary');
+    document.body.innerHTML = `<div class="identity-sheet"><div class="sheet-top"><span>NEOSIS RESEARCH</span><span>VISUAL IDENTITY / 02</span></div><div class="logo-showcase">${logo}</div><div class="identity-bottom"><div class="symbol-showcase">${symbol}</div><div class="identity-description"><p class="eyebrow">CONVERGENT FIELDS</p><h1>Different perspectives.<br>Connected understanding.</h1><p>Three interwoven fields. An open center. A shared pursuit of understanding.</p></div><div class="palette"><span></span><span></span><span></span></div></div></div>`;
     const css = document.createElement('style');
     css.textContent = `.identity-sheet{padding:50px 64px}.sheet-top{display:flex;justify-content:space-between;font-size:10px;letter-spacing:2px;color:#afc3c1}.logo-showcase{height:455px;display:grid;place-items:center;border-bottom:1px solid #304b4c;background:radial-gradient(ellipse,#21433d66,transparent 65%)}.logo-showcase .brand-lockup{transform:scale(3);transform-origin:center}.identity-bottom{display:flex;align-items:center;gap:70px;padding-top:65px}.symbol-showcase{width:140px;height:140px;background:#b6f2df;border-radius:25px;display:grid;place-items:center;flex-shrink:0}.symbol-showcase .brand-symbol{color:#091719;width:95px;height:95px}.identity-description h1{font:34px/1.2 'DM Sans';letter-spacing:-1px;margin:12px 0}.identity-description>p:last-child{font-size:13px;color:#afc3c1;max-width:450px}.palette{display:flex;margin-left:auto}.palette span{height:70px;width:60px;border-radius:50%;background:#18383a;border:1px solid #607f76;margin-left:-15px}.palette span:nth-child(2){background:#b6f2df}.palette span:last-child{background:#eff7f4}`;
     document.head.appendChild(css);

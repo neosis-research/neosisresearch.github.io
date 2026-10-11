@@ -8,7 +8,9 @@ The homepage pairs an oversized, direct headline with a dimensional CSS/SVG scul
 
 ## Identity
 
-The original folded-N symbol combines a clear diagonal with two offset planes. It connects the name Neosis with the site's optical language and the idea of viewing a question from multiple perspectives. The thin internal facet contrasts with the strong geometric silhouette. Use the symbol beside the spaced NEOSIS / RESEARCH lockup; use the symbol alone for the favicon. `public/brand/` contains reusable SVG symbol and wordmark exports. The export has portable font fallbacks; the website renders its wordmark with self-hosted DM Sans.
+**Convergent Fields** is a sculptural emblem of three curved, interwoven forms surrounding an open center. The three forms suggest complementary disciplines; the opening represents the question that connects them. Deliberate negative-space seams reveal the overlap in a single color. A compact variant increases the seams for favicon use. The emblem replaces the earlier folded-N letterform.
+
+UI UX Pro Max was consulted again for premium identity, contemporary typography and SVG clarity. An image-generated concept explored the interwoven direction; the production mark is a custom Bézier construction in `src/lib/brand.mjs`, shared by the site and generated exports. It has transparent cutouts rather than simulated background-colored strokes, and each inline instance has a unique mask ID. Its modern sans-serif wordmark pairs with the more intricate symbol. `public/brand/` contains reusable SVG symbol and wordmark exports.
 
 ## Typography and palette
 

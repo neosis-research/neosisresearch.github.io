@@ -30,3 +30,7 @@ Screenshots and machine-readable results are generated in `/tmp/neosis-glass-qa`
 - Automated accessibility checks complement, but do not replace, manual assistive-technology testing. Chromium is tested; Safari/Firefox and physical devices have not been independently tested.
 - No real Insights article has been published. Publishing mechanics are tested with temporary content only.
 - Authenticated 21st CLI catalog access/MCP was unavailable. Actual public Liquid Glass Button, PrismaHero and Topo Field reference pages were consulted, alongside local CLI review and public skill guidance. UI UX Pro Max was actively searched and its relevant recommendations applied.
+
+## Convergent Fields identity revision
+
+Replaced the folded-N symbol with a shared Bézier/mask construction used by the header, footer and brand asset generator. Astro diagnostics and the nine-page structural build check pass. Targeted logo/header checks passed at 320, 390, 768, 1024, 1120 and 1440px with no horizontal overflow or duplicate SVG IDs. Desktop/mobile axe scans and mobile menu/Escape behavior passed. The logo presentation and website screenshots were visually reviewed, and the portable preview was regenerated.

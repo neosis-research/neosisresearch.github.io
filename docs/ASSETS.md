@@ -1,6 +1,6 @@
 # Asset provenance
 
-- Folded-N logo, wordmark, favicon, social artwork, `ResearchFigure.astro`, `OpticalStudy.astro` and practice illustrations: original SVG/CSS artwork created for Neosis Research. No stock photography, client logos or synthetic results.
+- Convergent Fields logo, wordmark, favicon, social artwork, `ResearchFigure.astro`, `OpticalStudy.astro` and practice illustrations: original SVG/CSS artwork created for Neosis Research. No stock photography, client logos or synthetic results. The revised logo follows an image-generated concept study; production geometry is custom SVG in `src/lib/brand.mjs`.
 - `npm run assets` regenerates the SVG symbol/wordmark, favicon, 1200×630 social graphic, PNG social card and 180px touch icon. Source: `scripts/generate-brand-assets.mjs`.
 - DM Sans: Google / Colophon Foundry and project contributors, SIL Open Font License 1.1, via `@fontsource/dm-sans`.
 - Crimson Pro: Jacques Le Bailly and project contributors, SIL Open Font License 1.1, via `@fontsource/crimson-pro`.

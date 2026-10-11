@@ -20,7 +20,7 @@ The repository is public, so these files are publicly downloadable. Opening the 
 
 - `homepage-desktop.png`: desktop opening screen with the optical glass sculpture.
 - `homepage-mobile.png`: mobile opening and sculpture.
-- `neosis-logo.png`: custom folded-N identity and palette.
+- `neosis-logo.png`: custom Convergent Fields identity and palette.
 - Reusable SVG logo assets are in `public/brand/`.
 
 To regenerate: build the site, start Astro preview on port 4323, then run `npm run preview:package`. Set `QA_ORIGIN` if using another port. The packaging script keeps its staging directory under ignored `test-results/`.

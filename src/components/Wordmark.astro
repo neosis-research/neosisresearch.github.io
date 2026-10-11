@@ -1,24 +1,19 @@
 ---
 import { site } from '../../site.config';
+import { brandMarkup } from '../lib/brand.mjs';
+const maskId = `neosis-field-${crypto.randomUUID()}`;
 ---
 
 <span class="brand-lockup" aria-label={site.name}>
   <svg
     class="brand-symbol"
-    width="38"
-    height="38"
-    viewBox="0 0 40 40"
+    width="44"
+    height="44"
+    viewBox="0 0 100 100"
     fill="none"
     aria-hidden="true"
-  >
-    <path
-      d="M5 34V9l6-4 24 26-6 4L5 9m24 26V10l6-5v26"
-      stroke="currentColor"
-      stroke-width="1.65"
-      stroke-linejoin="round"
-    />
-    <path d="m5 9 6-4 24 26-6 4Z" fill="currentColor" fill-opacity=".16" />
-  </svg>
+    set:html={brandMarkup(maskId)}
+  />
   <span class="wordmark">
     <span>{site.shortName}</span>
     <span>Research</span>

@@ -75,7 +75,7 @@ Until an email is configured, the contact page clearly states that inquiries are
 
 ## Design system
 
-See [`docs/DESIGN.md`](docs/DESIGN.md) for the explored directions, chosen typography/palette, spacing, components, accessibility decisions, and honest design-tool usage report. Colors and spacing live in `src/styles/global.css`; shared visual patterns live in `src/components/`. The site uses DM Sans with Crimson Pro accents, a dark mineral/glacier palette, translucent glass surfaces, a custom folded-N identity, and original dimensional optical artwork.
+See [`docs/DESIGN.md`](docs/DESIGN.md) for the explored directions, chosen typography/palette, spacing, components, accessibility decisions, and honest design-tool usage report. Colors and spacing live in `src/styles/global.css`; shared visual patterns live in `src/components/`. The site uses DM Sans with Crimson Pro accents, a dark mineral/glacier palette, translucent glass surfaces, a custom Convergent Fields identity, and original dimensional optical artwork.
 
 ## Editing pages
 
